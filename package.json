@@ -11,7 +11,7 @@
     },
     "scripts": {
         "start": "node index.js",
-        "mongo": "node . --db 'mongodb://mongo:W94urzjkLskrOsT4iG5J@containers-us-west-31.railway.app:5887'",
+        "mongo": "node . --db 'mongodb+srv://database-bot-adi:CfR8W2YK2BxMKrXJ@cluster0.ycaop.mongodb.net/Bot?retryWrites=true&w=majority&ssl=true'",
         "test": "node test.js",
         "test2": "nodemon index.js"
     },
