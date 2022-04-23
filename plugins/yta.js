@@ -10,10 +10,10 @@ try {
     let server = (args[1] || servers[0]).toLowerCase()
     let { dl_link, thumb, title, filesize, filesizeF } = await yta(args[0], servers.includes(server) ? server : servers[0])
     let isLimit = (isPrems || isOwner ? 99 : limit) * 1024 < filesize
-    if (!isLimit) await conn.sendMessage(m.chat, { audio: { url: dl_link }}, { quoted: m })
+    if (!isLimit) await conn.sendMessage(m.chat, { audio: { url: dl_link }, mimetype: 'audio/mpeg'}, { quoted: m })
     } catch {
     liph.downloader.youtube.ytmp3(args[0]).then(data => {
-    conn.sendMessage(m.chat, { audio: { url: data.result }}, { quoted: m })
+    conn.sendMessage(m.chat, { audio: { url: data.result }, mimetype: 'audio/mpeg'}, { quoted: m })
   })
  }
 }
