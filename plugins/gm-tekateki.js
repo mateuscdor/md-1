@@ -18,7 +18,7 @@ Ketik ${usedPrefix}tete untuk bantuan
 Bonus: ${poin} XP
 `.trim()
     conn.tekateki[id] = [
-        await conn.sendBL(m.chat, caption, wm, fla + 'teka teki', [['Bantuan', `.tete`]], m),
+        await conn.sendButtonLoc(m.chat, fla + 'Teka teki', caption, wm, 'Bantuan', usedPrefix + 'tete', m),
         json, poin,
         setTimeout(async () => {
             if (conn.tekateki[id]) await conn.sendB(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, wm, null, [['Teka Teki', `.tekateki`]], conn.tekateki[id][0])
