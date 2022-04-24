@@ -34,7 +34,7 @@ let handler = async (m, { conn, args, __dirname, usedPrefix, command }) => {
                 //conn.sendFile(m.chat, buff, ran, null, m, /vn/.test(args[0]), { quoted: m, mimetype: 'audio/mp4' })
                 //await unlinkSync(filename)
             })
-        } else throw `*[❗] Responda a una nota de voz o audio el cual desee modificar usando el comando ${usedPrefix + command}*`
+        } else throw `Balas vn/audio dengan perintah *${usedPrefix + command}*`
     } catch (e) {
         throw e
     }
@@ -43,7 +43,7 @@ handler.help = ['bass', 'blown', 'deep', 'earrape', 'fast', 'fat', 'nightcore', 
 handler.tags = ['audio']
 handler.command = /^(bass|blown|deep|earrape|fas?t|nightcore|reverse|robot|slow|smooth|tupai|squirrel|chipmunk)$/i
 
-export default handler
+module.exports = handler
 
 const getRandom = (ext) => {
     return `${Math.floor(Math.random() * 10000)}${ext}`
