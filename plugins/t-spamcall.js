@@ -5,7 +5,7 @@ let handler = async (m, { conn, text, usedPrefix }) => {
   if (!nomor.startsWith('8')) throw `Contoh Penggunaan\n${usedPrefix}spamcall 628xxxxxxxx`
   m.reply(wait)
   let anu = await fetch(`https://id.jagreward.com/member/verify-mobile/${nomor}`).then(a => a.json())
-  M.reply(m.chat, `Berhasil spam call ke nomor ${nomor}`, m)
+  m.reply(m.chat, `Berhasil spam call ke nomor ${nomor}`, m)
 }
 
 handler.help = ['spamcall <nomor>']
