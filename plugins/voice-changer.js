@@ -1,10 +1,10 @@
 const { fs } = require('fs')
 const { exec } = require('child_process')
 
-let handler = async (m, { conn, args, __dirname, usedPrefix, command }) => {
+let handler = async (m, { conn, usedPrefix, command }) => {
     try {
         let q = m.quoted ? m.quoted : m
-        let mime = ((m.quoted ? m.quoted : m.msg).mimetype || '')
+        let mime = (q.msg || q).mimetype || ''
         let set
         if (/bass/.test(command)) set = '-af equalizer=f=54:width_type=o:width=2:g=20'
         if (/blown/.test(command)) set = '-af acrusher=.1:1:64:0:log'
@@ -36,7 +36,7 @@ let handler = async (m, { conn, args, __dirname, usedPrefix, command }) => {
 }
 handler.help = ['bass', 'blown', 'deep', 'earrape', 'fast', 'fat', 'nightcore', 'reverse', 'robot', 'slow', 'smooth', 'tupai'].map(v => v + ' [vn]')
 handler.tags = ['audio']
-handler.command = /^(bass|blown|deep|earrape|fas?t|nightcore|reverse|robot|slow|smooth|tupai|squirrel|chipmunk)$/i
+handler.command = /^(bass|blown|deep|earrape|fas?t|nightcore|reverse|robot|slow|smooth|tupai)$/i
 
 module.exports = handler
 
