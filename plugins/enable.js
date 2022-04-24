@@ -8,21 +8,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
   let isAll = false
   let isUser = false
   switch (type) {
-    case 'sholat':
-    case 'closegroup':
-    case 'autoclosegroup':
-      if (!m.isGroup) {
-        if (!isOwner) {
-          global.dfail('group', m, conn)
-          throw false
-        }
-      } else if (!(isAdmin || isOwner)) {
-        global.dfail('admin', m, conn)
-        throw false
-      }
-      chat.closeGroup = isEnable
-      break
-    case 'w':
     case 'welcome':
       if (!m.isGroup) {
         if (!isOwner) {
@@ -94,9 +79,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         }
       }
       chat.autodelvn = isEnable
-      break
-    case 'document':
-      chat.useDocument = isEnable
       break
     case 'publik':
     case 'public':
@@ -269,7 +251,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       if (!/[01]/.test(command)) throw `
 ┌〔 Daftar Opsi 〕
 │ ${isOwner ? '\n├ tag\n├ anon\n├ antispam\n├ antivirtex\n├ backup\n├ clear\n├ autoread\n├ grouponly\n├ jadibot\n├ nsfw\n├ public\n├ clear\n├ mycontact\n├ ephe' : ''}
-├ autoclosegroup
 ├ antilink
 ├ antitroli
 ├ antibuggc
