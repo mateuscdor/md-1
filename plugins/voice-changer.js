@@ -20,6 +20,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         if (/smooth/.test(command)) set = '-filter:v "minterpolate=\'mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120\'"'
         if (/tupai|squirrel|chipmunk/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'
         if (/audio/.test(mime)) {
+            m.reply(wait)
             let media = await conn.downloadAndSaveMediaMessage(q)
             let ran = conn.getRandom('.mp3')
             exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
