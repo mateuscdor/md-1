@@ -14,6 +14,7 @@ RUN apt-get update && \
 WORKDIR /app
 COPY . /app
 
+RUN npm i -g npm@6.14.14
 RUN npm install
 RUN npm update
 
