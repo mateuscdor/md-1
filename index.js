@@ -39,7 +39,7 @@ function start(file) {
   })
   let p = cluster.fork()
   p.on('message', data => {
-    // console.log('[RECEIVED]', data)
+    console.log('[RECEIVED]', data)
     switch (data) {
       case 'reset':
         p.kill()
