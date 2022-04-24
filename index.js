@@ -52,6 +52,7 @@ function start(file) {
     }
   })
   p.on('exit', code => {
+    console.log(code)
     isRunning = false
     if (code === 0) return
     fs.watchFile(args[0], () => {
