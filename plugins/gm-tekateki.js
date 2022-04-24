@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.tekateki = conn.tekateki ? conn.tekateki : {}
     let id = m.chat
     if (id in conn.tekateki) {
-        await conn.sendButton(m.chat, 'Masih ada soal belum terjawab di chat ini', wm, 'Bantuan', usedPrefix + 'ao', conn.asahotak[id][0])
+        await conn.sendButton(m.chat, 'Masih ada soal belum terjawab di chat ini', wm, 'Bantuan', usedPrefix + 'ao', conn.tekateki[id][0])
         throw false
     }
     let src = await (await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/tekateki.json')).json()
@@ -21,7 +21,7 @@ Bonus: ${poin} XP
         await conn.sendButtonLoc(m.chat, fla + 'Teka teki', caption, wm, 'Bantuan', usedPrefix + 'tete', m),
         json, poin,
         setTimeout(async () => {
-            if (conn.tekateki[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, wm, 'Teka Teki', usedPrefix + 'tekateki', conn.asahotak[id][0])
+            if (conn.tekateki[id]) await conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, wm, 'Teka Teki', usedPrefix + 'tekateki', conn.tekateki[id][0])
             delete conn.tekateki[id]
         }, timeout)
     ]
