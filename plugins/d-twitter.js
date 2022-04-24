@@ -10,7 +10,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   let pesan = json.data.map((v) => `Link: ${v.url}`).join('\n------------\n')
   m.reply(pesan)
   for (let { url } of json.data)
-    conn.sendFile(m.chat, url, 'ig' + (/mp4/i.test(url) ? '.mp4' : '.jpg'), wm, m)
+    conn.sendFile(m.chat, url, 'ig' + (/mp4/i.test(url) ? '.mp4' : '.jpg'), 'Nih bang', m)
 
 }
 handler.help = ['twitter'].map(v => v + ' <url>')
