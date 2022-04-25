@@ -17,7 +17,7 @@ let handler = async (m, { conn, text, isAdmin, isOwner }) => {
         text
     ]
 }
-handler.help = ['+absen [teks]']
+handler.help = ['mulaiabsen [teks]']
 handler.tags = ['absen']
 handler.command = /^(start|mulai|\+)(attendance|absen)$/i
 
