@@ -12,10 +12,10 @@ let handler = async (m, { conn, text }) => {
         conn.reply(res, `*${conn.user.name}* adalah bot whatsapp, diundang oleh @${m.sender.split`@`[0]}\n${conn.user.name} akan keluar otomatis setelah: ${await conn.msToDate(global.db.data.chats[res].expired - now)}`.trim(), null, { mentions: [m.sender], contextInfo: { mentionedJid: [m.sender] } })
     })
 }
-handler.help = ['join <chat.whatsapp.com>']
+handler.help = ['joingc <chat.whatsapp.com>']
 handler.tags = ['main']
 
-handler.command = /^join$/i
+handler.command = /^joingc$/i
 
 handler.limit = true
 module.exports = handler
