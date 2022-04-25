@@ -176,7 +176,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       }
     })
     if (teks == '404') {
-      let judul = `${ucapan()}, ${name}`.trim()
+      let judul = `${global.ucapan}, ${name}`.trim()
       const sections = [
       {
         title: 'List Menu ' + namabot,
@@ -274,7 +274,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     const buttonMessage = {
         document: { url: "https://wa.me/6289504585790" },
         mimetype: global.doc,
-        fileName: global.ucapan + name,
+        fileName: global.ucapan + ` ${name}`,
         fileLength: 887890909999999,
         pageCount: 1234567890123456789012345,
         contextInfo: {
