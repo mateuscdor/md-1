@@ -28,7 +28,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
         await fs.unlinkSync(media)
         if (err) return m.reply(err)
         let buff = await fs.readFileSync(filename)
-        conn.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
+        conn.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg', ptt: true }, { quoted : m })
         await fs.unlinkSync(filename)
         })
         } else throw `Balas vn/audio dengan perintah *${usedPrefix + command}*`
