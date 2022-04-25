@@ -162,6 +162,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     }
     let muptime = clockString(_muptime)
     let uptime = clockString(_uptime)
+    let block = await conn.fetchBlocklist()
+    let chats = Object.keys(await conn.chats)
+    let groups = chats.filter(id => id.endsWith('@g.us'))
     global.jam = time
     let totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
@@ -176,7 +179,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       }
     })
     if (teks == '404') {
-      let judul = `Hallo ${name}\n┌─〔 Status Bot 〕\n├ Aktif selama ${uptime}\n├ *${groups.length}* Grup\n├ *${chats.length - groups.length}* Chat Pribadi\n├ *${Object.keys(global.db.data.users).length}* Pengguna\n├ *${block == undefined ? '0 Diblokir' : block.length + ' Diblokir'}*\n├ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned\n├ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned\n└───────`.trim()
+      let judul = `Hallo ${name}\n\n┌─〔 Status Bot 〕\n├ Aktif selama ${uptime}\n├ *${groups.length}* Grup\n├ *${chats.length - groups.length}* Chat Pribadi\n├ *${Object.keys(global.db.data.users).length}* Pengguna\n├ ${block == undefined ? '*0* Diblokir' : '*' + block.length + '* Diblokir'}\n├ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned\n├ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned\n└───────`.trim()
       const sections = [
       {
         title: 'List Menu ' + namabot,
