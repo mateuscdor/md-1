@@ -238,15 +238,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       setting.epe = isEnable
       break
-    case 'simi':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
-      }
-      chat.simi = isEnable
-      break
     default:
       if (!/[01]/.test(command)) throw `
 ┌〔 Daftar Opsi 〕
@@ -260,7 +251,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 ├ detect
 ├ document
 ├ stiker
-├ simi
 ├ welcome
 │ 
 └────
