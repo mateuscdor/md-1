@@ -8,7 +8,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   igstory(args[0]).then(async res => {
     let igs = JSON.stringify(res)
     let json = JSON.parse(igs)
-    await m.reply(global.wait)
+    await m.reply(wait)
     for (let { downloadUrl, type } of json)
       conn.sendFile(m.chat, downloadUrl, 'ig' + (type == 'image' ? '.jpg' : '.mp4'), 'Nih bang', m)
 
