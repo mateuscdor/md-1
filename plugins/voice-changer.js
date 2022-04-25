@@ -1,4 +1,5 @@
-const { fs } = require('fs')
+const fs = require('fs')
+const path = require('path')
 const { exec } = require('child_process')
 
 let handler = async (m, { conn, usedPrefix, command }) => {
@@ -20,14 +21,15 @@ let handler = async (m, { conn, usedPrefix, command }) => {
         if (/tupai/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'
         if (/audio/.test(mime)) {
         m.reply(wait)
-        let media = await conn.downloadAndSaveMediaMessage(q)
         let ran = getRandom('.mp3')
-        exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
-        fs.unlinkSync(media)
+        let filename = path.join(__dirname, '../tmp/' + ran)
+        let media = await conn.downloadAndSaveMediaMessage(q, filename)
+        exec(`ffmpeg -i ${media} ${set} ${filename}`, async (err, stderr, stdout) => {
+        await fs.unlinkSync(media)
         if (err) return m.reply(err)
-        let buff = fs.readFileSync(ran)
+        let buff = await fs.readFileSync(filename)
         conn.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
-        fs.unlinkSync(ran)
+        await fs.unlinkSync(filename)
         })
         } else throw `Balas vn/audio dengan perintah *${usedPrefix + command}*`
     } catch (e) {
