@@ -33,6 +33,15 @@ handler.all = async function (m) {
         await this.sendButton(m.chat, !(m.isGroup || m.isPrems) && group ? 'hanya grup' : isBanned ? 'chat banned' : banned ? 'user banned' : 'aktif', wm, !(m.isGroup || m.isPrems) && group ? 'donasi' : isBanned ? 'unban' : banned ? 'minta owner kalo mau di unban' : 'donasi', !(m.isGroup || m.isPrems) && group ? '.donasi' : isBanned ? '.unban' : banned ? '.owner' : '.donasi', m)
     }
 
+    // update status
+    if (setting.statusup) {
+        if (new Date() * 1 - setting.status > 1000) {
+            let _uptime = process.uptime() * 1000
+            let uptime = clockString(_uptime)
+            await this.setBio(`Aktif selama ${uptime}`).catch(_ => _)
+            setting.status = new Date() * 1
+        }
+    }
 
     // backup db
     if (setting.backup) {
