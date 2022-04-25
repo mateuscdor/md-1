@@ -334,7 +334,6 @@ module.exports = {
                     if (!isNumber(settings.status)) settings.status = 0
                     if (!'epe' in settings) settings.epe = true
                     if (!'game' in settings) settings.game = true
-                    if (!'statusup' in settings) settings.statusup = true
                 } else global.db.data.settings[this.user.jid] = {
                     tag: true,
                     self: false,
@@ -347,7 +346,6 @@ module.exports = {
                     status: 0,
                     epe: true,
                     game: true,
-                    statusup: true,
                 }
             } catch (e) {
                 console.error(e)
