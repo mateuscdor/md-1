@@ -59,8 +59,6 @@ handler.all = async function (m) {
             setting.backupDB = new Date() * 1
         }
     }
-
-    return !0
 }
 
 module.exports = handler
