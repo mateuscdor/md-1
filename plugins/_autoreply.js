@@ -34,13 +34,11 @@ handler.all = async function (m) {
     }
 
     // update status
-    if (setting.statusup) {
         if (new Date() * 1 - setting.status > 1000) {
             let _uptime = process.uptime() * 1000
             let uptime = clockString(_uptime)
             await this.setBio(`Aktif selama ${uptime}`).catch(_ => _)
             setting.status = new Date() * 1
-        }
     }
 
     // backup db
