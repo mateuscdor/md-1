@@ -346,6 +346,7 @@ module.exports = {
                     status: 0,
                     epe: true,
                     game: true,
+                    status: 0,
                 }
             } catch (e) {
                 console.error(e)
