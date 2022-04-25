@@ -1,12 +1,14 @@
-let handler = async (m, { conn, text, isOwner, usedPrefix, command }) => {
+let handler = async (m, { conn, text, isROwner, isOwner, isAdmin, usedPrefix, command }) => {
   if (text) {
-    if (!(isAdmin || isOwner)) return global.dfail('admin', m, conn)
-    db.data.chats[m.chat].sBye = text
+    if (isROwner) global.conn.bye = text
+    else if ((isOwner || isAdmin)) conn.bye = text
+    global.db.data.chats[m.chat].sBye = text
     m.reply('Bye berhasil diatur\n@user (Mention)')
-  } else throw `Penggunaan:\n${usedPrefix + command} <teks>\n\ncontoh:\n${usedPrefix + command} byebye @user`
+  } else throw 'Teksnya mana?\n\ncontoh:\n' + `${usedPrefix + command} selamat tinggal @user!`
 }
 handler.help = ['setbye <teks>']
 handler.tags = ['group']
-handler.command = /^setbye$/i
+handler.command = /^(setbye|sbye)$/i
+handler.group = true
 
-module.exports = handler 
+module.exports = handler
