@@ -11,7 +11,7 @@ let handler = async (m, { conn, isAdmin, isOwner }) => {
     delete conn.absen[id]
     m.reply(`berhasil menghapus sesi absen!`)
 }
-handler.help = ['-absen']
+handler.help = ['hapusabsen']
 handler.tags = ['absen']
 handler.command = /^(delete|hapus|-)(attendance|absen)$/i
 
