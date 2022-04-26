@@ -19,7 +19,7 @@ const defaultMenu = {
   header: '*</ %category >*',
   body: '-❥ %cmd %islimit %isPremium',
   footer: '',
-  after: `Don't spam, if you violate the rules this bot will be blocked!! Thank you`,
+  after: `Don't spam, if you break the rules of this bot, you will be banned!! Thank you`,
 }
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 
