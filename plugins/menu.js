@@ -46,6 +46,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'database': 'DATABASE',
     'vote': 'VOTING',
     'absen': 'ABSEN',
+    'jadian': 'JADIAN',
     'quran': 'Al Qur\'an',
     'audio': 'Pengubah Suara',
     'info': 'Info',
@@ -96,7 +97,8 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   }
   if (teks == 'vote') tags = {
     'vote': 'Voting',
-    'absen': 'Absen'
+    'absen': 'Absen',
+    'jadian': 'Jadian'
   }
   if (teks == 'quran') tags = {
     'quran': 'Al Qur\'an'
@@ -195,7 +197,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
           { title: 'Tools', rowId: `${_p}? tools` },
           { title: 'Fun', rowId: `${_p}? fun`},
           { title: 'Database', rowId: `${_p}? database` },
-          { title: 'Vote & Absen', rowId: `${_p}? vote` },
+          { title: 'Vote & Absen & Jadian', rowId: `${_p}? vote` },
           { title: "Al-Qur\'an", rowId: `${_p}? quran` },
           { title: 'Pengubah Suara', rowId: `${_p}? audio` },
           { title: 'Info', rowId: `${_p}? info` },
