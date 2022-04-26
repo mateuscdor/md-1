@@ -98,7 +98,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.antiLink = isEnable
       break
-    case 'stiker':
+    case 'autostiker':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
@@ -250,7 +250,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 ├ delete
 ├ detect
 ├ document
-├ stiker
+├ autostiker
 ├ welcome
 │ 
 └────
