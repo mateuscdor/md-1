@@ -25,7 +25,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'vote', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
+  let arrayMenu = ['all', 'game', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'vote', 'quran', 'audio', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'UTAMA',
@@ -48,7 +48,6 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'absen': 'ABSEN',
     'quran': 'Al Qur\'an',
     'audio': 'Pengubah Suara',
-    'jadibot': 'Jadi Bot',
     'info': 'Info',
     '': 'Tanpa Kategori',
   }
@@ -104,9 +103,6 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   }
   if (teks == 'audio') tags = {
     'audio': 'Pengubah Suara'
-  }
-  if (teks == 'jadibot') tags = {
-    'jadibot': 'Jadi Bot'
   }
   if (teks == 'info') tags = {
     'info': 'Info'
@@ -202,7 +198,6 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
           { title: 'Vote & Absen', rowId: `${_p}? vote` },
           { title: "Al-Qur\'an", rowId: `${_p}? quran` },
           { title: 'Pengubah Suara', rowId: `${_p}? audio` },
-          { title: 'Jadi Bot', rowId: `${_p}? jadibot` },
           { title: 'Info', rowId: `${_p}? info` },
           { title: 'Tanpa Kategori', rowId: `${_p}? tanpakategori` },
           { title: 'Owner', rowId: `${_p}? owner` },
