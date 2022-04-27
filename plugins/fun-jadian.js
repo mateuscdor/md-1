@@ -12,5 +12,6 @@ handler.help = ['jodohin', 'jodohku']
 handler.tags = ['fun']
 handler.command = /^jodoh(in|ku)|jadian$/i
 handler.group = true
+handler.limit = true
 
 module.exports = handler
