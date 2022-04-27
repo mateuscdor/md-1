@@ -7,6 +7,7 @@ RUN apt-get update && \
   python2 \
   ffmpeg \
   imagemagick \
+  graphicsmagick \
   webp \
   chromium && \
   rm -rf /var/lib/apt/lists/*
