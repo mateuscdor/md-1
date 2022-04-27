@@ -11,8 +11,8 @@ RUN apt-get update && \
   chromium && \
   rm -rf /var/lib/apt/lists/*
 
-WORKDIR /app
-COPY . /app
+WORKDIR /bot
+COPY . /bot
 
 RUN npm install
 RUN npm update
