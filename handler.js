@@ -640,14 +640,14 @@ module.exports = {
                                 gc: await this.getName(id),
                                 pp: pp,
                                 bg: 'https://cdn.wallpapersafari.com/38/89/pZxtn4.jpg'
-                            })
+                            }, 'apikey')
                             let lea = API('adigege', '/api/goodbye', {
                                 nama: await this.getName(user),
                                 member: groupMetadata.participants.length,
                                 gc: await this.getName(id),
                                 pp: pp,
                                 bg: 'https://cdn.wallpapersafari.com/38/89/pZxtn4.jpg'
-                            })
+                            }, 'apikey')
                             await this.send3TemplateButtonImg(id, action === 'add' ? wel : lea, text, wm, action === 'add' ? 'selamat datang' : 'sampai jumpa', action === 'add' ? '.intro' : 'FokusID')
                         }
                     }
