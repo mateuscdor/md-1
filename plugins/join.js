@@ -9,7 +9,7 @@ let handler = async (m, { conn, text }) => {
         var now = new Date() * 1
         if (now < global.db.data.chats[m.chat].expired) global.db.data.chats[m.chat].expired += jumlahHari
         else global.db.data.chats[m.chat].expired = now + jumlahHari
-        conn.reply(res, `*${conn.user.name}* adalah bot whatsapp, diundang oleh @${m.sender.split`@`[0]}\n${conn.user.name} akan keluar otomatis setelah: ${await conn.msToDate(global.db.data.chats[res].expired - now)}`.trim(), null, { mentions: [m.sender] })
+        conn.reply(res, `*${conn.user.name}* adalah bot whatsapp, diundang oleh @${m.sender.split`@`[0]}\n${conn.user.name} akan keluar otomatis setelah: ${await conn.msToDate(global.db.data.chats[m.chat].expired - now)}`.trim(), null, { mentions: [m.sender] })
     })
 }
 handler.help = ['joingc <chat.whatsapp.com>']
