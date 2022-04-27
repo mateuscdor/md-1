@@ -7,8 +7,7 @@ let handler = async (m, { conn, text }) => {
     conn.reply(m.chat, `Berhasil join ke grup ${await conn.getName(res)}`, m).then(async () => {
         var jumlahHari = 86400000 * 1
         var now = new Date() * 1
-        if (now < global.db.data.chats[m.chat].expired) global.db.data.chats[m.chat].expired += jumlahHari
-        else global.db.data.chats[m.chat].expired = now + jumlahHari
+        if (now < global.db.data.chats[m.chat].expired) global.db.data.chats[m.chat].expired = now + jumlahHari
         conn.reply(res, `*${conn.user.name}* adalah bot whatsapp, diundang oleh @${m.sender.split`@`[0]}\n${conn.user.name} akan keluar otomatis setelah: ${await conn.msToDate(global.db.data.chats[m.chat].expired - now)}`.trim(), null, { mentions: [m.sender] })
     })
 }
