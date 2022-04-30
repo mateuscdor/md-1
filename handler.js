@@ -377,7 +377,7 @@ module.exports = {
             }
             if (m.isBaileys) return
             m.exp += Math.ceil(Math.random() * 10)
-
+            conn.sendReadReceipt(m.chat, m.sender, [m.key.id])
             let usedPrefix
             let _user = global.db.data && global.db.data.users && global.db.data.users[m.sender]
 
